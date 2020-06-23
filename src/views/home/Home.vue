@@ -2,17 +2,33 @@
   <div id="home">
     <!--导航-->
     <nav-bar class="home-nav"><div slot="center">购物街</div></nav-bar>
+
+    <!--<scroll class="content"-->
+            <!--ref="scroll"-->
+            <!--:probe-type="3"-->
+            <!--@scroll="contentScroll"-->
+            <!--:pull-up-load="true"-->
+            <!--@pullingUp="loadMore"/>-->
     <!--轮播图-->
-    <home-swiper :p-banners="banners"/>
+    <home-swiper :pBanners="banners"/>
+
     <!--简绍-->
     <recommend-view :recommendInfo="recommends"/>
+    <feature-view/>
+    <tab-control :titles="['流行','新款','精选']"/>
   </div>
 </template>
 
 <script>
-  import  NavBar from '@/components/common/navbar/NavBar'
+
   import  HomeSwiper from "./childComps/HomeSwiper"
   import  RecommendView from "./childComps/RecommendView"
+  import  FeatureView from "./childComps/FeatureView"
+
+  import  NavBar from '@/components/common/navbar/NavBar'
+  // import  Scroll from '@/components/common/scroll/Scroll'
+  import  TabControl from "@/components/content/tabControl/TabControl"
+
   import {getHomeMultidata} from "@/network/home";
   export default {
     name: "Home",
@@ -35,9 +51,12 @@
       })
     },
     components:{
-      NavBar,
       HomeSwiper,
-      RecommendView
+      RecommendView,
+      FeatureView,
+      NavBar,
+      TabControl,
+      // Scroll
     }
   }
 </script>
