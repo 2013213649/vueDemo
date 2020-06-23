@@ -10,7 +10,7 @@ import axios from  'axios';
 export  function request(config) {
   // 1 配置基本参数
   const  instance = axios.create({
-    baseURL:'http://152.136.185.210:8000/api/n3',
+    baseURL:'',
     timeout:5000,
     headers:{}
   });
